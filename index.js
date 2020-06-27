@@ -36,7 +36,7 @@ const fi = (function() {
         acc = collection[0]
         collection = collection.slice(1)
       }
-      
+
       for(let i = 0; i< collection.length; i++) {
         acc = callback(acc, collection[i], collection)
       }
@@ -47,7 +47,7 @@ const fi = (function() {
       if(!(collection instanceof Array)) {
         collection = Object.values(collection)
       }
-      
+
       for(let i = 0; i< collection.length; i++) {
         if(item(collection[i])) {
           return collection[i]
@@ -91,7 +91,7 @@ const fi = (function() {
       return newArr;
     },
     last: function(collection, n=false) {
-     
+
       if(n) {
         return collection.slice(collection.length - n)
       } else {
@@ -113,7 +113,7 @@ const fi = (function() {
         return callback(a) - callback(b)
       })
     },
-    
+
     flatten: function(collection, shallow, newArr = []) {
       if(!Array.isArray(collection)) {
         newArr.push(collection)
@@ -133,12 +133,12 @@ const fi = (function() {
           this.flatten(collection[i], false, newArr)
         }
       }
-     
+
 
       return newArr
-    }, 
+    },
     uniq: function(collection, sorted, callback = false) {
-      
+
       let newArr = []
       let callbackArr = []
       if(!collection instanceof Array) {
@@ -147,10 +147,10 @@ const fi = (function() {
       if(!sorted) {
         collection = collection.sort()
       }
-      
+
       for(let i =0; i<collection.length; i++) {
         if(newArr.indexOf(collection[i]) !=-1) {
-         
+
           collection.slice(collection[i], 1)
         } else {
           if(callback) {
@@ -164,25 +164,25 @@ const fi = (function() {
           }
         }
       }
-      
+
       return newArr
-      
+
     },
     keys: function(collection) {
-      
+
       let key = []
       for(let k in collection) {
         key.push(k)
       }
       return key
-    }, 
+    },
     values: function(collection) {
       let values = [];
       for(let k in collection) {
         values.push(collection[k])
       }
       return values
-    }, 
+    },
 
     functions: function(obj) {
       let names = []
